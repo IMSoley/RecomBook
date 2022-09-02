@@ -17,7 +17,7 @@ books_dict = pd.DataFrame(books_dict)
 app = Flask(__name__)
 
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/recommend', methods=['POST', 'GET'])
 def recommend_books():
     web_title = ["Popular 50 Books", "Recommended 10 Books", "Oops! No Books Found"]
     book_error = []
