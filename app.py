@@ -1,6 +1,7 @@
 import pickle
 import numpy as np
 import pandas as pd
+from flask_cors import CORS
 from flask import Flask, render_template, request
 
 
@@ -15,6 +16,7 @@ books_dict = pd.DataFrame(books_dict)
 
 
 app = Flask(__name__)
+CORS(app)
 
 
 @app.route('/', methods=['POST', 'GET'])
