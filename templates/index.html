@@ -26,9 +26,7 @@
             <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
                 <h4 class="display-6 fw-normal"><a style="text-decoration: none;color: black;" href="">Collaborative Filtering Book Recommender Systems</a></h4>
                 <p class="fs-5 text-muted">
-                Quickly build an effective pricing table for your potential
-                customers with this Bootstrap example. It’s built with default
-                Bootstrap components and utilities with little customization.
+                A book recommender system using user-based Collaborative Filtering. Content-based filtering is used to provide popular 50 books to users.
                 </p>
             </div>
         </header>
@@ -45,11 +43,11 @@
                         {% endif %}
                     </div>
                     <div class="my-auto">
-                        <form method="POST" class="navbar-form navbar-right" role="search" autocomplete="off">
-                            <div style="margin-right: 10px;" class='input-group'>
-                                <input required id="autocomplete" placeholder="Get recommendations from {{books_dict_len}} Books ..." class='form-control' type='text' name='user_input_book'/>
+                        <form action="/recommend" method="POST" class="navbar-form navbar-right" role="search" autocomplete="off">
+                            <div style="margin-right: 10px;" class="search">
+                                <input required id="autocomplete" placeholder="Get recommendations from {{books_dict_len}} Books ..." class="form-control" type="text" name="user_input_book"/>
                                 <span class="input-group-btn">
-                                    <button class="btn btn-secondary" type="submit">
+                                    <button class="btn btn-default" type="submit">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
@@ -104,9 +102,9 @@
     <div class="col-md-12 text-center">
     <!-- <h5>About</h5> -->
     <ul class="list-unstyled text-small">
-        <li class="mb-1"><a class="link-secondary text-decoration-none" href="">Homepage</a> &#9829; <a class="link-secondary text-decoration-none" target="_blank" href="https://soleyman.xyz">Md Soleyman</a></li>
         <li class="mb-1">Number of Books: {{books_dict_len}}</span></li>
-        <li class="mb-1">Project github: <a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+        <li class="mb-1">Project github: <a class="link-secondary text-decoration-none" href="https://github.com/IMSoley/RecomBook">RecomBook</a></li>
+        <li class="mb-1"><a class="link-secondary text-decoration-none" href="">Homepage</a> &#9829; <a class="link-secondary text-decoration-none" target="_blank" href="https://soleyman.xyz">Md Soleyman</a></li>
         <li class="mb-1">Dataset link: <a target="_blank" class="link-secondary text-decoration-none" href="https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset">Book Recommendation Dataset</a></li>
     </ul>
     </div>
@@ -117,7 +115,7 @@
 <script>
     $(document).ready(function() {
         // $('#inputrating').rating({displayOnly: true, showCaption:false, size:'xs', showClear: false});
-        var placeHolder = ['Enter a book name', 'Enter at least 3 char to get suggestions dropdown', 'Get recommendations from {{books_dict_len}} Books ...'];
+        var placeHolder = ["Enter a book name", "Enter 2< char to get autocomplete", "Get recommendations from {{books_dict_len}} Books ...", "What's your favorite book?"];
         var n=0;
         var loopLength=placeHolder.length;
 
@@ -130,7 +128,7 @@
             $('#autocomplete').attr('placeholder', placeHolder[0]);
             n=0;
         }
-        },7000);
+        },5000);
     });
     function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
