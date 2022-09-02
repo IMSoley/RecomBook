@@ -2,7 +2,7 @@
 
 A book recommender system using user-based Collaborative Filtering.
 
-* Project live demo: <https://recom.soleyman.xyz>
+* Project website: <https://recom.soleyman.xyz>
 * Dataset link: <https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset>
 
 ## How to run locally
