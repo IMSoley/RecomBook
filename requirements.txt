@@ -1,0 +1,7 @@
+Flask==2.2.2
+jupyter==1.0.0
+matplotlib==3.5.3
+notebook==6.4.12
+numpy==1.23.2
+pandas==1.4.4
+gunicorn==20.1.0
